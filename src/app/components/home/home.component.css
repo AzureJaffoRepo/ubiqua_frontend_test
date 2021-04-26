@@ -1,0 +1,214 @@
+.btn-pokedex {
+    position: fixed;
+    bottom: 25px;
+    right: 25px;
+}
+
+.poke-card {
+    height: 475px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+#title {
+    margin-top: 15px;
+    margin-bottom: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 25px;
+    background-color: black;
+    color: white;
+}
+
+#spacer {
+    height: 20px;
+}
+
+#pokebox {
+    width: 300px;
+    height: 100%;
+    margin: auto;
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 5px 5px 5px #aaaaaa;
+}
+
+.poke-img {
+    width: 300px;
+    height: 300px;
+    background-color: gray;
+    padding: 10px;
+    margin: auto;
+    border-radius: 10px 10px 0px 0px; 
+}
+
+.poke-data {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 0px 0px 10px 10px;
+}
+
+#pokebox:hover {
+    cursor:pointer;
+    background-color: rgb(219, 219, 219);
+    border-radius: 10px 10px 10px 10px;
+    box-shadow: 5px 5px 5px #aaaaaa;
+    transform: translateY(-5px);
+    transition: transform 0.5s;
+}
+
+p {
+    text-align: right;
+}
+
+.poke-name{
+    text-align: center;
+}
+
+.poke-types-normal {
+    height: 100%;
+    width: 100%;
+    background-color: #AAAA99;
+    color:white;
+    border-radius: 15px;
+    text-shadow: 2px 2px #000000;
+    text-align: center;
+}
+
+.poke-types-fire {
+    background-color: #FF4422;
+    color:white;
+    text-shadow: 2px 2px #000000;
+    border-radius: 15px;
+    text-align: center;
+}
+.poke-types-water {
+    background-color: #3399FF;
+    color:white;
+    text-shadow: 2px 2px #000000;
+    border-radius: 15px;
+    text-align: center;
+}
+.poke-types-electric {
+    background-color: #FFCC33;
+    color:white;
+    text-shadow: 2px 2px #000000;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.poke-types-grass {
+    background-color: #77CC55;
+    color:white;
+    text-shadow: 2px 2px #000000;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.poke-types-ice {
+    background-color: #66CCFF;
+    color:white;
+    text-shadow: 2px 2px #000000;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.poke-types-fighting {
+    background-color: #BB5544;
+    color:white;
+    text-shadow: 2px 2px #000000;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.poke-types-poison {
+    background-color: #AA5599;
+    color:white;
+    text-shadow: 2px 2px #000000;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.poke-types-ground {
+    background-color: #DDBB55;
+    color:white;
+    text-shadow: 2px 2px #000000;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.poke-types-flying {
+    background-color: #8899FF;
+    color:white;
+    text-shadow: 2px 2px #000000;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.poke-types-psychic {
+    background-color: #FF5599;
+    color:white;
+    text-shadow: 2px 2px #000000;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.poke-types-bug {
+    background-color: #AABB22;
+    color:white;
+    text-shadow: 2px 2px #000000;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.poke-types-rock {
+    background-color: #BBAA66;
+    color:white;
+    text-shadow: 2px 2px #000000;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.poke-types-ghost {
+    background-color: #6666BB;
+    color:white;
+    text-shadow: 2px 2px #000000;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.poke-types-dragon {
+    background-color: #7766EE;
+    color:white;
+    text-shadow: 2px 2px #000000;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.poke-types-dark {
+    background-color: var(--dark);
+    color:white;
+    text-shadow: 2px 2px #000000;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.poke-types-steel {
+    background-color: #775544;
+    color:white;
+    text-shadow: 2px 2px #000000;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.poke-types-fairy {
+    background-color: #EE99EE;
+    color:white;
+    text-shadow: 2px 2px #000000;
+    border-radius: 15px;
+    text-align: center;
+}
+
+
+
