@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit {
           }
           this.pokelist.push(pokemons[i]);
         }
-        console.log(this.pokelist)
+        //console.log(this.pokelist)
       }
     )
   }
@@ -44,19 +44,11 @@ export class HomeComponent implements OnInit {
       (pokemon: any)=> {
         // console.log(pokemon);
         for(let j = 0; j < pokemon.Types.length; j++){
-          console.log(pokemon.Types[j].type);
+          //console.log(pokemon.Types[j].type);
           pokemon.Types[j].type.name = pokemon.Types[j].type.name.toUpperCase()
         }
         this.pokemonInfo = pokemon
         // console.log(this.pokemonInfo)
-        
-        if(this.pokeTeam.length == 6) {
-          document.getElementById("teamfull").click();
-        } else {
-          if(this.pokeTeam.length < 6){
-            this.pokeTeam.push(this.pokemonInfo);
-          } 
-        }
         
       }
     )
@@ -77,6 +69,16 @@ export class HomeComponent implements OnInit {
     this.getPokeList();
   }
 
+  catchingPokemon() {
+    if(this.pokeTeam.length == 6) {
+      document.getElementById("teamfull").click();
+    } else {
+      if(this.pokeTeam.length < 6){
+        document.getElementById("successcatch").click();
+        this.pokeTeam.push(this.pokemonInfo);
+      } 
+    }
+  }
   
   closePokemonInfo(){
     this.screenMode = 0;
