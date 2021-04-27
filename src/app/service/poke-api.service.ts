@@ -13,7 +13,6 @@ export class PokeApiService {
   constructor(private http: HttpClient) { }
 
   getAllPokemon() {
-    console.log(environment.pokeAPIURL + "/pokemons")
     return this.http.get(environment.pokeAPIURL + "/pokemons").pipe(map(
         (result:any) => result
     ));
