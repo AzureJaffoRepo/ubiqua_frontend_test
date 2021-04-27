@@ -1,0 +1,297 @@
+<div class="container">
+    <section *ngIf="screenMode == 0" >
+        <div class="row">
+            <div id="title" class="col-12">
+                <h1 style="text-align: center;">POKEMON KANTO</h1>
+            </div>
+        </div>
+        <section *ngIf="pokelist.length != 0" >
+            <div class="row">
+                <div class="col-md-6 col-sm-12 poke-card" *ngFor="let poke of pokelist" >
+                    <div id="pokebox" (click)="openPokemonInfo(poke.ID)" >
+                        <img class="poke-img" src="{{poke.Picture}}" alt="" >
+                        <div class="poke-data">
+                            <h2 class="poke-name">#{{poke.ID}} {{poke.Name}}</h2>
+                            <h3>Type(s)</h3>
+                            <div class="row">
+                                <div class="col-6" *ngFor="let type of poke.Types" >
+                                    <section *ngIf="type.type.name == 'NORMAL'" >
+                                        <p class="poke-types-normal">{{type.type.name}}</p>
+                                    </section>
+                                    <section *ngIf="type.type.name == 'FIRE'" >
+                                        <p class="poke-types-fire">{{type.type.name}}</p>
+                                    </section>
+                                    <section *ngIf="type.type.name == 'WATER'" >
+                                        <p class="poke-types-water">{{type.type.name}}</p>
+                                    </section>
+                                    <section *ngIf="type.type.name == 'ELECTRIC'" >
+                                        <p class="poke-types-electric">{{type.type.name}}</p>
+                                    </section>
+                                    <section *ngIf="type.type.name == 'GRASS'" >
+                                        <p class="poke-types-grass">{{type.type.name}}</p>
+                                    </section>
+                                    <section *ngIf="type.type.name == 'ICE'" >
+                                        <p class="poke-types-ice">{{type.type.name}}</p>
+                                    </section>
+                                    <section *ngIf="type.type.name == 'FIGHTING'" >
+                                        <p class="poke-types-fighting">{{type.type.name}}</p>
+                                    </section>
+                                    <section *ngIf="type.type.name == 'POISON'" >
+                                        <p class="poke-types-poison">{{type.type.name}}</p>
+                                    </section>
+                                    <section *ngIf="type.type.name == 'GROUND'" >
+                                        <p class="poke-types-ground">{{type.type.name}}</p>
+                                    </section>
+                                    <section *ngIf="type.type.name == 'FLYING'" >
+                                        <p class="poke-types-flying">{{type.type.name}}</p>
+                                    </section>
+                                    <section *ngIf="type.type.name == 'PSYCHIC'" >
+                                        <p class="poke-types-psychic">{{type.type.name}}</p>
+                                    </section>
+                                    <section *ngIf="type.type.name == 'BUG'" >
+                                        <p class="poke-types-bug">{{type.type.name}}</p>
+                                    </section>
+                                    <section *ngIf="type.type.name == 'ROCK'" >
+                                        <p class="poke-types-rock">{{type.type.name}}</p>
+                                    </section>
+                                    <section *ngIf="type.type.name == 'GHOST'" >
+                                        <p class="poke-types-ghost">{{type.type.name}}</p>
+                                    </section>
+                                    <section *ngIf="type.type.name == 'DRAGON'" >
+                                        <p class="poke-types-dragon">{{type.type.name}}</p>
+                                    </section>
+                                    <section *ngIf="type.type.name == 'DARK'" >
+                                        <p class="poke-types-dark">{{type.type.name}}</p>
+                                    </section>
+                                    <section *ngIf="type.type.name == 'STEEL'" >
+                                        <p class="poke-types-steel">{{type.type.name}}</p>
+                                    </section>
+                                    <section *ngIf="type.type.name == 'FAIRY'" >
+                                        <p class="poke-types-fairy">{{type.type.name}}</p>
+                                    </section>
+                                </div>
+                            </div>  
+                            <div class="row">
+                                <div class="col-12">
+                                    <p><a href="#"><small><em>Pokemon Infomation...</em></small></a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </section>
+        <section *ngIf="pokelist.length == 0">
+            <h2 style="text-align: center;">Loading PokeDex...</h2>
+        </section>
+        <div class="btn-pokedex">
+            <button mat-fab color="primary" aria-label="Your pokemon team" (click)="openPokemonTeam()" [disabled]="pokelist.length == 0">
+                <mat-icon>class</mat-icon>
+            </button>
+        </div>
+    </section>
+    <section *ngIf="screenMode == 1">
+        <div class="row">
+            <div id="title" class="col-12">
+                <h1 style="text-align: center;">Digital PokeDex</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div id="pokebox" >
+                <img class="poke-img" src="{{pokemonInfo.Picture}}" alt="" >
+                <div class="poke-data">
+                    <h2 class="poke-name">#{{pokemonInfo.ID}} {{pokemonInfo.Name}}</h2>
+                    <h3>Type(s)</h3>
+                    <div class="row">
+                        <div class="col-12" *ngFor="let type of pokemonInfo.Types" >
+                            <section *ngIf="type.type.name == 'NORMAL'" >
+                                <p class="poke-types-normal">{{type.type.name}}</p>
+                            </section>
+                            <section *ngIf="type.type.name == 'FIRE'" >
+                                <p class="poke-types-fire">{{type.type.name}}</p>
+                            </section>
+                            <section *ngIf="type.type.name == 'WATER'" >
+                                <p class="poke-types-water">{{type.type.name}}</p>
+                            </section>
+                            <section *ngIf="type.type.name == 'ELECTRIC'" >
+                                <p class="poke-types-electric">{{type.type.name}}</p>
+                            </section>
+                            <section *ngIf="type.type.name == 'GRASS'" >
+                                <p class="poke-types-grass">{{type.type.name}}</p>
+                            </section>
+                            <section *ngIf="type.type.name == 'ICE'" >
+                                <p class="poke-types-ice">{{type.type.name}}</p>
+                            </section>
+                            <section *ngIf="type.type.name == 'FIGHTING'" >
+                                <p class="poke-types-fighting">{{type.type.name}}</p>
+                            </section>
+                            <section *ngIf="type.type.name == 'POISON'" >
+                                <p class="poke-types-poison">{{type.type.name}}</p>
+                            </section>
+                            <section *ngIf="type.type.name == 'GROUND'" >
+                                <p class="poke-types-ground">{{type.type.name}}</p>
+                            </section>
+                            <section *ngIf="type.type.name == 'FLYING'" >
+                                <p class="poke-types-flying">{{type.type.name}}</p>
+                            </section>
+                            <section *ngIf="type.type.name == 'PSYCHIC'" >
+                                <p class="poke-types-psychic">{{type.type.name}}</p>
+                            </section>
+                            <section *ngIf="type.type.name == 'BUG'" >
+                                <p class="poke-types-bug">{{type.type.name}}</p>
+                            </section>
+                            <section *ngIf="type.type.name == 'ROCK'" >
+                                <p class="poke-types-rock">{{type.type.name}}</p>
+                            </section>
+                            <section *ngIf="type.type.name == 'GHOST'" >
+                                <p class="poke-types-ghost">{{type.type.name}}</p>
+                            </section>
+                            <section *ngIf="type.type.name == 'DRAGON'" >
+                                <p class="poke-types-dragon">{{type.type.name}}</p>
+                            </section>
+                            <section *ngIf="type.type.name == 'DARK'" >
+                                <p class="poke-types-dark">{{type.type.name}}</p>
+                            </section>
+                            <section *ngIf="type.type.name == 'STEEL'" >
+                                <p class="poke-types-steel">{{type.type.name}}</p>
+                            </section>
+                            <section *ngIf="type.type.name == 'FAIRY'" >
+                                <p class="poke-types-fairy">{{type.type.name}}</p>
+                            </section>
+                        </div>
+                    </div>  
+                    <div class="row">
+                        <div class="col-12">
+                            <button type="button" class="btn btn-dark btn-block" data-toggle="modal" data-target="#succesModal">Add to PokeDex</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section *ngIf="screenMode == 2">
+        <div class="row">
+            <div id="title" class="col-12">
+                <h1 style="text-align: center;">YOUR POKEMON TEAM</h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 col-sm-12 poke-card" *ngFor="let poke of pokelist" >
+                <div id="pokebox" (click)="openPokemonInfo(poke.ID)" >
+                    <img class="poke-img" src="{{poke.Picture}}" alt="" >
+                    <div class="poke-data">
+                        <h2 class="poke-name">#{{poke.ID}} {{poke.Name}}</h2>
+                        <h3>Type(s)</h3>
+                        <div class="row">
+                            <div class="col-6" *ngFor="let type of poke.Types" >
+                                <section *ngIf="type.type.name == 'NORMAL'" >
+                                    <p class="poke-types-normal">{{type.type.name}}</p>
+                                </section>
+                                <section *ngIf="type.type.name == 'FIRE'" >
+                                    <p class="poke-types-fire">{{type.type.name}}</p>
+                                </section>
+                                <section *ngIf="type.type.name == 'WATER'" >
+                                    <p class="poke-types-water">{{type.type.name}}</p>
+                                </section>
+                                <section *ngIf="type.type.name == 'ELECTRIC'" >
+                                    <p class="poke-types-electric">{{type.type.name}}</p>
+                                </section>
+                                <section *ngIf="type.type.name == 'GRASS'" >
+                                    <p class="poke-types-grass">{{type.type.name}}</p>
+                                </section>
+                                <section *ngIf="type.type.name == 'ICE'" >
+                                    <p class="poke-types-ice">{{type.type.name}}</p>
+                                </section>
+                                <section *ngIf="type.type.name == 'FIGHTING'" >
+                                    <p class="poke-types-fighting">{{type.type.name}}</p>
+                                </section>
+                                <section *ngIf="type.type.name == 'POISON'" >
+                                    <p class="poke-types-poison">{{type.type.name}}</p>
+                                </section>
+                                <section *ngIf="type.type.name == 'GROUND'" >
+                                    <p class="poke-types-ground">{{type.type.name}}</p>
+                                </section>
+                                <section *ngIf="type.type.name == 'FLYING'" >
+                                    <p class="poke-types-flying">{{type.type.name}}</p>
+                                </section>
+                                <section *ngIf="type.type.name == 'PSYCHIC'" >
+                                    <p class="poke-types-psychic">{{type.type.name}}</p>
+                                </section>
+                                <section *ngIf="type.type.name == 'BUG'" >
+                                    <p class="poke-types-bug">{{type.type.name}}</p>
+                                </section>
+                                <section *ngIf="type.type.name == 'ROCK'" >
+                                    <p class="poke-types-rock">{{type.type.name}}</p>
+                                </section>
+                                <section *ngIf="type.type.name == 'GHOST'" >
+                                    <p class="poke-types-ghost">{{type.type.name}}</p>
+                                </section>
+                                <section *ngIf="type.type.name == 'DRAGON'" >
+                                    <p class="poke-types-dragon">{{type.type.name}}</p>
+                                </section>
+                                <section *ngIf="type.type.name == 'DARK'" >
+                                    <p class="poke-types-dark">{{type.type.name}}</p>
+                                </section>
+                                <section *ngIf="type.type.name == 'STEEL'" >
+                                    <p class="poke-types-steel">{{type.type.name}}</p>
+                                </section>
+                                <section *ngIf="type.type.name == 'FAIRY'" >
+                                    <p class="poke-types-fairy">{{type.type.name}}</p>
+                                </section>
+                            </div>
+                        </div>  
+                        <div class="row">
+                            <div class="col-12">
+                                <p><a href="#"><small><em>Pokemon Infomation...</em></small></a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="btn-pokedex">
+            <button class="mat-fab" mat-fab color="primary" aria-label="Your pokemon team" (click)="closePokemonTeam()">
+                <mat-icon>home</mat-icon>
+            </button>
+        </div>
+    </section>
+</div>
+<button id="teamfull" type="button" class="btn btn-dark btn-block" data-toggle="modal" data-target="#teamFullModal" hidden></button>
+<div class="modal fade" id="succesModal" tabindex="-1" role="dialog" aria-labelledby="successCatchPokemon" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="successCatchPokemon">Congratulations!</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            {{pokemonInfo.Name}} has been added to your PokeDex
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closePokemonInfo()" >Back</button>
+        </div>
+      </div>
+    </div>
+</div>
+<div class="modal fade" id="teamFullModal" tabindex="-1" role="dialog" aria-labelledby="teamFullMessage" aria-hidden="true">
+<div class="modal-dialog" role="document">
+    <div class="modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title" id="teamFullMessage">Warning!</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        Your team slots are full... sorry
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="closePokemonInfo()" >Back</button>
+    </div>
+    </div>
+</div>
+</div>
+
