@@ -19,7 +19,7 @@ export class PokeApiService {
     ));
   }
 
-  getPokemonDetail(id: string) {
+  getPokemonDetail(id: number) {
     return this.http.get(environment.pokeAPIURL + "/pokemon/" + id).pipe(map(
         (result:any) => result
     ));

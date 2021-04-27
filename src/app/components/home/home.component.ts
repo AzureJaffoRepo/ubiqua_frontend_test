@@ -9,11 +9,20 @@ import { PokeApiService } from '../../service/poke-api.service';
 })
 export class HomeComponent implements OnInit {
 
+  public screenMode: number = 0;
   public pokelist: any = [];
+  public pokeTeam: any = [];
+  public pokemonInfo: any = {}
+
   constructor(private pokeApi: PokeApiService,
               private router: Router) { }
 
   ngOnInit(): void {
+    this.getPokeList();
+  }
+
+  getPokeList() {
+    this.pokelist = []
     this.pokeApi.getAllPokemon().subscribe(
       (pokemons:any) => {
         //console.log(pokemons);
@@ -28,17 +37,50 @@ export class HomeComponent implements OnInit {
       }
     )
   }
+ 
+  getPokemonInfo(id: number) {
+    this.pokemonInfo = {}
+    this.pokeApi.getPokemonDetail(id).subscribe(
+      (pokemon: any)=> {
+        // console.log(pokemon);
+        for(let j = 0; j < pokemon.Types.length; j++){
+          console.log(pokemon.Types[j].type);
+          pokemon.Types[j].type.name = pokemon.Types[j].type.name.toUpperCase()
+        }
+        this.pokemonInfo = pokemon
+        // console.log(this.pokemonInfo)
+        
+        if(this.pokeTeam.length == 6) {
+          document.getElementById("teamfull").click();
+        } else {
+          if(this.pokeTeam.length < 6){
+            this.pokeTeam.push(this.pokemonInfo);
+          } 
+        }
+        
+      }
+    )
+  }
 
   openPokemonInfo(id: number) {
-    console.log(id)
-    this.router.navigate(['/pokemon-info'])
-    localStorage.setItem("pokeID", ""+id);
+    this.screenMode = 1;
+    this.getPokemonInfo(id)
   }
 
   openPokemonTeam() {
-    //console.log(id)
-    this.router.navigate(['/pokemon-team'])
-    //localStorage.setItem("pokeID", ""+id);
+    this.screenMode = 2;
+    this.pokelist = this.pokeTeam;
+  }
+
+  closePokemonTeam() {
+    this.screenMode = 0;
+    this.getPokeList();
+  }
+
+  
+  closePokemonInfo(){
+    this.screenMode = 0;
+    this.getPokeList();
   }
 
 }

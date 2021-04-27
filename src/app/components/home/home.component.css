@@ -1,7 +1,14 @@
+
+.mat-fab {
+    background-color: #000000 !important;
+}
+
+
 .btn-pokedex {
     position: fixed;
     bottom: 25px;
     right: 25px;
+    z-index: 1;
 }
 
 .poke-card {

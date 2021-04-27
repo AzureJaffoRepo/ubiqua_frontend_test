@@ -4,8 +4,6 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
-import { PokemonInfoComponent } from './components/pokemon-info/pokemon-info.component';
-import { PokemonTeamComponent } from './components/pokemon-team/pokemon-team.component';
 
 import { HttpClientModule } from "@angular/common/http";
 import appRoutes from './router';
@@ -17,9 +15,7 @@ import {MatIconModule} from '@angular/material/icon';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent,
-    PokemonInfoComponent,
-    PokemonTeamComponent
+    HomeComponent
   ],
   imports: [
     BrowserModule,
