@@ -24,9 +24,9 @@ export class HomeComponent implements OnInit {
   getPokeList() {
     this.pokelist = []
     this.pokeApi.getAllPokemon().subscribe(
-      (pokemons:any) => {
+      (pokemons:any[]) => {
         //console.log(pokemons);
-        for(let i = 0; i < 10; i++){
+        for(let i = 0; i < pokemons.length; i++){
           for(let j = 0; j < pokemons[i].Types.length; j++){
             //console.log(pokemons[i].Types[j].type.name.toUpperCase());
             pokemons[i].Types[j].type.name = pokemons[i].Types[j].type.name.toUpperCase()
